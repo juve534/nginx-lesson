@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+    nginx:
+        image: nginx:alpine
+        ports:
+            - 8088:80
+        depends_on:
+            - php
+        networks:
+            - lesson_net
+    php:
+        image: php:7.4-fpm
+        volumes:
+            - ./:/workspace
+        networks:
+            - lesson_net
+    go:
+      image: golang:1.13.1
+      volumes:
+        - ./go:/go/src/github.com/juve534/nginx-lesson
+      working_dir: /go/src/github.com/juve534/nginx-lesson
+      command: go run http.go
+      ports:
+        - 8080:8080
+networks:
+    lesson_net:
+        driver: bridge
