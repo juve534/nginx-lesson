@@ -4,6 +4,7 @@ services:
     nginx:
         image: nginx:latest
         volumes:
+            - ./nginx/:/etc/nginx/conf.d/
             - ./go:/go/src/github.com/juve534/nginx-lesson
         working_dir: /go/src/github.com/juve534/nginx-lesson
         ports:
