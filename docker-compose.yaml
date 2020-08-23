@@ -17,7 +17,7 @@ services:
     php:
         image: php:7.4-fpm
         volumes:
-            - ./:/workspace
+            - ./php:/workspace
         networks:
             - lesson_net
 networks:
