@@ -6,6 +6,7 @@ services:
         volumes:
             - ./nginx/:/etc/nginx/conf.d/
             - ./go:/go/src/github.com/juve534/nginx-lesson
+            - ./docker/init:/docker-entrypoint.d
         working_dir: /go/src/github.com/juve534/nginx-lesson
         ports:
             - 8088:80
