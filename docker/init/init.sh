@@ -6,4 +6,4 @@ pwd
 
 apt-get update -y
 apt-get install -y golang procps
-go run http.go
+go run http.go &
