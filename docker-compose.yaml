@@ -4,7 +4,8 @@ services:
     nginx:
         image: nginx:latest
         volumes:
-            - ./nginx/:/etc/nginx/conf.d/
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
             - ./go:/go/src/github.com/juve534/nginx-lesson
             - ./docker/init:/docker-entrypoint.d
         working_dir: /go/src/github.com/juve534/nginx-lesson
@@ -19,6 +20,7 @@ services:
         image: php:7.4-fpm
         volumes:
             - ./php:/workspace
+            - ./docker/phpfpm/php-fpm.conf:/usr/local/etc/php-fpm.d/php-fpm.conf
         networks:
             - lesson_net
 networks:
